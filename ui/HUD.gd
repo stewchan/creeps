@@ -4,7 +4,7 @@ export(PackedScene) var settings_scene
 
 signal start_game
 
-const HIGHSCORE_MAX_RESULTS = 5
+const HIGHSCORE_MAX_RESULTS = 10
 
 
 func show_message(text):

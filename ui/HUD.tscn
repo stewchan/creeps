@@ -52,7 +52,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -90.0
-margin_top = -200.0
+margin_top = -140.0
 margin_right = 90.0
 margin_bottom = -100.0
 custom_fonts/font = SubResource( 2 )
@@ -65,7 +65,7 @@ one_shot = true
 
 [node name="Leaderboard" parent="." instance=ExtResource( 3 )]
 visible = false
-position = Vector2( 0, 128 )
+position = Vector2( 0, 80 )
 
 [node name="SettingsButton" type="Button" parent="."]
 visible = false
@@ -78,13 +78,12 @@ text = "Settings"
 [node name="NameLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -71.5
-margin_top = 50.0
-margin_right = 71.5
-margin_bottom = 119.0
+margin_left = -72.0
+margin_top = 40.0
+margin_right = 71.0
+margin_bottom = 109.0
 custom_fonts/font = SubResource( 5 )
-text = "Player245
-"
+text = "Player245"
 align = 1
 
 [node name="NameLabelButton" type="TextureButton" parent="NameLabel"]

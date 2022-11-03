@@ -1,6 +1,7 @@
 tool
 extends Node2D
 
+const MAX_HIGHSCORES = 10
 const ScoreItem = preload("ScoreItem.tscn")
 const SWLogger = preload("../utils/SWLogger.gd")
 
@@ -23,7 +24,7 @@ func _ready():
 	else:
 		# use a signal to notify when the high scores have been returned, and show a "loading" animation until it's the case...
 		add_loading_scores_message()
-		yield(SilentWolf.Scores.get_high_scores(5), "sw_scores_received")
+		yield(SilentWolf.Scores.get_high_scores(MAX_HIGHSCORES), "sw_scores_received")
 		hide_message()
 		render_board(SilentWolf.Scores.scores, local_scores)
 
