@@ -3,6 +3,7 @@ extends Node
 var player_name
 
 
+# Save the player's name to local storage
 func save_name(name):
 	var config = ConfigFile.new()
 	config.set_value("player", "name", name)
@@ -15,15 +16,16 @@ func _ready():
 	# Load SilentWolf settings from env
 	var api_key
 	var game_id
-	var f = File.new()
-	f.open("res://.env", File.READ)
-	api_key = str(f.get_line())
-	game_id = str(f.get_line())
-	f.close()
+
+	var env_config = ConfigFile.new()
+	var env_err = env_config.load("user://.env")
+	if env_err == OK:
+		api_key = env_config.get_value("silentwolf", "api_key")
+		game_id = env_config.get_value("silentwolf", "game_id")
 
 	# Load player name from file
-	var config = ConfigFile.new()
-	var err = config.load("user://settings.cfg")
+	var player_config = ConfigFile.new()
+	var player_err = config.load("user://settings.cfg")
 	if err == OK:
 		player_name = config.get_value("player", "name")
 	else:
