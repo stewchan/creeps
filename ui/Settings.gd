@@ -34,6 +34,8 @@ func _on_TextureButton_pressed():
 	print("lineedit pressed")
 	#if OS.has_feature("Javascript"):
 	name = $PlayerName.text
-	find_node("PlayerName").text = JavaScript.eval("""
-		prompt("Player Name", name)
-	""")
+	find_node("PlayerName").text = JavaScript.eval(
+		"""
+		prompt("Player Name:", name)
+	"""
+	)
