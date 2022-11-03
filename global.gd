@@ -18,16 +18,16 @@ func _ready():
 	var game_id
 
 	var env_config = ConfigFile.new()
-	var env_err = env_config.load("user://.env")
+	var env_err = env_config.load("res://.env")
 	if env_err == OK:
 		api_key = env_config.get_value("silentwolf", "api_key")
 		game_id = env_config.get_value("silentwolf", "game_id")
 
 	# Load player name from file
 	var player_config = ConfigFile.new()
-	var player_err = config.load("user://settings.cfg")
-	if err == OK:
-		player_name = config.get_value("player", "name")
+	var player_err = player_config.load("user://settings.cfg")
+	if player_err == OK:
+		player_name = player_config.get_value("player", "name")
 	else:
 		player_name = "Player" + str(randi() % 1000).pad_zeros(2)
 
