@@ -5,6 +5,7 @@ var player_name
 
 # Save the player's name to local storage
 func save_name(name):
+	player_name = name
 	var config = ConfigFile.new()
 	config.set_value("player", "name", name)
 	config.save("user://settings.cfg")

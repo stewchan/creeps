@@ -10,13 +10,13 @@ func _on_SaveButton_pressed():
 	save_name()
 
 
+func _on_PlayerName_text_entered(_new_text: String):
+	save_name()
+
+
 func _on_CancelButton_pressed():
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Main.tscn")
-
-
-func _on_PlayerName_text_entered(_new_text: String):
-	save_name()
 
 
 func save_name():
@@ -28,3 +28,12 @@ func save_name():
 
 func _on_PlayerName_focus_entered():
 	$PlayerName.text = ""
+
+
+func _on_TextureButton_pressed():
+	print("lineedit pressed")
+	#if OS.has_feature("Javascript"):
+	name = $PlayerName.text
+	find_node("PlayerName").text = JavaScript.eval("""
+		prompt("Player Name", name)
+	""")
