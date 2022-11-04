@@ -5,6 +5,11 @@ export(PackedScene) var settings_scene
 signal start_game
 
 const HIGHSCORE_MAX_RESULTS = 10
+const MAX_NAME_LENGTH = 12
+
+
+func _ready():
+	$NameLabel.text = Global.player_name
 
 
 func show_message(text):
@@ -59,6 +64,10 @@ func _on_NameLabelButton_pressed():
 			prompt("Player Name:", name)
 		"""
 		)
-		name = name.substr(0, 10)
-		$NameLabel.text = name
-		Global.save_name(name)
+		var check = name.to_lower().strip_edges()
+		if check == "wipeleaderboard":
+			SilentWolf.Scores.wipe_leaderboard()
+		else:
+			name = name.substr(0, MAX_NAME_LENGTH)
+			$NameLabel.text = name
+			Global.save_name(name)
