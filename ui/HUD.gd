@@ -12,6 +12,7 @@ func _ready():
 	$NameLabel.text = Global.player_name
 
 
+# Show message with a delay
 func show_message(text):
 	$MessageLabel.text = text
 	$MessageLabel.show()
